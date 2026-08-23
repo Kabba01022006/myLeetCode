@@ -11,38 +11,22 @@
 11            }
 12        }
 13        List<List<Integer>> ans = new ArrayList<>();
-14        List<Integer> sub = new ArrayList<>();
-15        if (missing.size() == 0) {
-16            return ans;
-17        }
-18        sub.add(missing.get(0));
-19        int i=1;
-20        while(i<missing.size()){
-21            if(missing.get(i)-missing.get(i-1)==1){
-22                i++;
-23            }
-24            else if(missing.get(i)-missing.get(i-1)!=1){
-25                sub.add(missing.get(i-1));
-26                ans.add(sub);
-27                sub = new ArrayList<>();
-28                sub.add(missing.get(i));
-29                i++;
-30            }
-31        }
-32        sub.add(missing.get(missing.size() - 1));
-33        ans.add(sub);
-34        // while (i<missing.size()) {
-35        //     int start = missing.get(i);
-36        //     while (i+1<missing.size() && missing.get(i+1)-missing.get(i)==1){
-37        //         i++;
-38        //     }
-39        //     int end = missing.get(i);
-40        //     List<Integer> sub = new ArrayList<>();
-41        //     sub.add(start);
-42        //     sub.add(end);
-43        //     ans.add(sub);
-44        //     i++;
-45        // }
-46        return ans;
-47    }
-48}
+14        if (missing.size() == 0) {
+15            return ans;
+16        }
+17        int i=0;
+18        while (i<missing.size()) {
+19            int start = missing.get(i);
+20            while (i+1<missing.size() && missing.get(i+1)-missing.get(i)==1){
+21                i++;
+22            }
+23            int end = missing.get(i);
+24            List<Integer> sub = new ArrayList<>();
+25            sub.add(start);
+26            sub.add(end);
+27            ans.add(sub);
+28            i++;
+29        }
+30        return ans;
+31    }
+32}
