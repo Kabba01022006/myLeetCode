@@ -1,20 +1,10 @@
-1class Solution {
-2    public int hIndex(int[] citations) {
-3        int h=0;
-4        int maxh=0;
-5
-6        while(h<=citations.length){ //as if arr length is 5 , max h possible is 5 as well
-7            int count = 0;
-8            for(int j=0;j<citations.length;j++){
-9                if(citations[j]>=h){
-10                    count++;
-11                }
-12            }
-13            if(count>=h){
-14                maxh = Math.max(maxh,h);
-15            }
-16            h++;
-17        }
-18        return maxh;
-19    }
-20}
+Definition says "been cited at least h times " 
+ so, 4 papers, at index 3, has been cited at least 1 times
+4 papers can't be cited  at least 4 times or at least 3 times or any number > the minimum citation we see at this index, viz  1
+
+_Hence, we have to take min(citation[i], index+1) for h-idx_
+(0-index) h-idx = min(4, 1)
+
+We don;t stop here, idea is to MAXIMIZE  h-Index and we have to Try every Index in this fashion Uptil Maximum Allowed index
+
+Basically we have the maximize the last column in table above^^
