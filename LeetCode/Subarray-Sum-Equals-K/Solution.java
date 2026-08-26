@@ -1,16 +1,14 @@
-1class Solution {
-2    public int subarraySum(int[] nums, int k) {
-3        HashMap<Integer,Integer> map = new HashMap<>(); //<prefixSum,frequency>
+1//brute force
+2class Solution {
+3    public int subarraySum(int[] nums, int k) {
 4        int count=0;
-5        int currSum=0;
-6        map.put(0,1);
-7        for(int i=0;i<nums.length;i++){
-8            currSum+=nums[i];
-9            if(map.containsKey(currSum-k)){
-10                count+=map.get(currSum-k);
-11            }
-12            map.put(currSum,map.getOrDefault(currSum,0)+1);
-13        }
-14        return count;
-15    }
-16}
+5        for(int i=0;i<nums.length;i++){
+6            int sum=0;
+7            for(int j=i;j<nums.length;j++){
+8                sum+=nums[j];
+9                if(sum==k) count++;
+10            }
+11        }
+12        return count;
+13    }
+14}
