@@ -1,14 +1,14 @@
 1class Solution {
 2    public int maxProfit(int[] prices) {
-3        int buy = prices.length-2;
-4        int maxSell=Integer.MIN_VALUE;
-5        int maxProfit=0;
-6        while(buy>=0){
-7            maxSell = Math.max(maxSell,prices[buy+1]);
-8            int diff = maxSell - prices[buy];
-9            maxProfit = Math.max(maxProfit,diff);
-10            buy--;
+3        // if (prices.length==1) return 0;
+4        int i=prices.length-2;
+5        int maxFuture=prices[prices.length-1];
+6        int maxPro=0;
+7        while(i>=0){
+8            maxPro = Math.max(maxPro,maxFuture-prices[i]);
+9            maxFuture = Math.max(maxFuture,prices[i]);
+10            i--;
 11        }
-12        return maxProfit;
+12        return maxPro;
 13    }
 14}
