@@ -2,7 +2,7 @@
 2    public long countCommas(long n) {
 3        long countCom=0;
 4        int len = countDigit(n);
-5        while(len>=3){
+5        while(len>=4){
 6            //5,200,000 to 1,000,000 ,
 7            // thats 5,200,000 - 999,999 + 1 commas
 8            int commas = (len-1)/3;
