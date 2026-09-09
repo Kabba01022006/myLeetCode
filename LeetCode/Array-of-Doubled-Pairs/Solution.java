@@ -13,14 +13,15 @@
 13            else toClear.put(arr[i],toClear.getOrDefault(arr[i],0)+1);
 14        }
 15        if(zeroCount%2!=0) return false;
-16        Arrays.sort(arr);
-17        for(int i=0;i<arr.length;i++){
-18            if(arr[i]!=0 && toClear.get(arr[i])>0 && toClear.containsKey(2*arr[i]) && toClear.get(2*arr[i])>0){
-19                toClear.put(arr[i],toClear.get(arr[i])-1);
-20                toClear.put(2*arr[i],toClear.get(2*arr[i])-1);
-21                countPairs+=2;
-22            }
-23        }
-24        return (countPairs+zeroCount==arr.length);
-25    }
-26}
+16        //sorting is neccessary as cases such as [2,4,0,0,8,1] might fail as 2->4 but 8 will be left alone , so we will sort it such that pairing happens correct orderwise
+17        Arrays.sort(arr);
+18        for(int i=0;i<arr.length;i++){
+19            if(arr[i]!=0 && toClear.get(arr[i])>0 && toClear.containsKey(2*arr[i]) && toClear.get(2*arr[i])>0){
+20                toClear.put(arr[i],toClear.get(arr[i])-1);
+21                toClear.put(2*arr[i],toClear.get(2*arr[i])-1);
+22                countPairs+=2;
+23            }
+24        }
+25        return (countPairs+zeroCount==arr.length);
+26    }
+27}
