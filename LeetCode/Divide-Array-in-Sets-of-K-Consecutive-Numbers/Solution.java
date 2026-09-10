@@ -17,7 +17,7 @@
 17            if(!map.containsKey(start)){
 18                return false;
 19            }
-20            else if(map.containsKey(start+1) && map.get(start)<=0){
+20            else if(map.containsKey(start) && map.get(start)<=0){
 21                return false;
 22            }
 23            else{
