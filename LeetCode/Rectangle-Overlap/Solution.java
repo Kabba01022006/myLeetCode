@@ -1,11 +1,1 @@
-/*
-                ^
-                |
-            ooooooooo
-            o       o
-   <-----   o       o   ----->
-            o       o
-            ooooooooo
-                |
-                v
-*/
+if (x1 >= x4 || y1 >= y4 || ...) {}
