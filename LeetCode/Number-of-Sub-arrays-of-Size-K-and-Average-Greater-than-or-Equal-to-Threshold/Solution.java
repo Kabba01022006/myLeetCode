@@ -7,17 +7,14 @@
 7        for(int i=0;i<=right;i++){
 8            sum+=arr[i];
 9        }
-10        int avg = sum/k;
-11        if(avg>=threshold) count++;
-12        while(right<arr.length-1){
-13            sum=sum-arr[left];
-14            left++;
-15            right++;
-16            sum=sum+arr[right];
-17            avg=sum/k;
-18            if(threshold==0) count++;
-19            else if(avg>=threshold) count++;
-20        }
-21        return count;
-22    }
-23}
+10        if(sum/k>=threshold) count++;
+11        while(right<arr.length-1){
+12            sum=sum-arr[left];
+13            left++;
+14            right++;
+15            sum=sum+arr[right];
+16            if(sum/k>=threshold) count++;
+17        }
+18        return count;
+19    }
+20}
