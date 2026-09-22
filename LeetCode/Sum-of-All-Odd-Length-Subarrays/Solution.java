@@ -5,12 +5,13 @@
 5            int sum=0;
 6            for(int j=i;j<arr.length;j++){
 7                sum+=arr[j];
-8                int dist=j-i-1;
-9                if(dist%2!=0){
-10                    totalSum+=sum;
+8
+9                if((j - i + 1) % 2 != 0) {
+10                totalSum += sum;
 11                }
 12            }
 13        }
 14        return totalSum;
 15    }
 16}
+17
