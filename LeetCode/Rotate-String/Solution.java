@@ -5,10 +5,10 @@
 5        int rot = s.length()-1;
 6        StringBuilder str = new StringBuilder(s);
 7        while(rot!=0){
-8            char last = str.charAt(str.length() - 1);
-9            str.deleteCharAt(str.length() - 1);
-10            str.insert(0, last);
-11            if(goal.equals(str.toString())) return true;
+8            char ch=str.charAt(0);
+9            str.deleteCharAt(0);
+10            str.append(ch);
+11            if(str.toString().equals(goal)) return true;
 12            rot--;
 13        }
 14        return false;
